@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>함수</title>
+</head>
+<body>
+	<h1>Function</h1>
+	<h2>Basic</h2>
+	<ul>
+		<script>
+			function two() {
+				alert('<li>2-1</li>');
+				console.log('<li>2-1</li>');
+				document.write('<li>2-1</li>');
+				alert('<li>2-2</li>');
+				console.log('<li>2-2</li>');
+				document.write('<li>2-2</li>');
+			}
+			alert('<li>1</li>');
+			console.log('<li>1</li>');
+			document.write('<li>1</li>');
+			two();
+			alert('<li>3</li>');
+			console.log('<li>3</li>');
+			document.write('<li>3</li>');
+			two();
+		</script>
+	</ul>
+
+	<h2>Parameter &amp; Argument</h2>
+
+	<script>
+		function onePlusOne() {
+			alert(1 + 1);
+			console.log(1 + 1);
+			document.write(1 + 1+"<br>");
+		}
+		onePlusOne();
+		function sum(left, right) {
+			alert(left + right);
+			console.log(left + right);
+			document.write(left + right+"<br>");
+		}
+		function sumColorRed(left, right) {
+			alert('<div style="color: red;">'+left+right+'</div><br>');
+			console.log('<div style="color: red;">'+left+right+'</div><br>');
+			document.write('<div style="color: red;">'+left+right+'</div><br>');
+		}
+		sum(2, 3);
+		sumColorRed(2, 3);
+		sum(3, 4);
+	</script>
+
+	<h2>Return</h2>
+
+	<script>
+		function sum2(left, right) {
+			return left + right;
+		}
+		alert(sum2(2, 3)+"<br>");
+		console.log(sum2(2, 3)+"<br>");
+		document.write(sum2(2, 3)+"<br>");
+		alert('<div style="color: red;">'+
+			sum2(2, 3)+'</div>');
+		console.log('<div style="color: red;">'+
+			sum2(2, 3)+'</div>');
+		document.write('<div style="color: red;">'+
+			sum2(2, 3)+'</div>');
+		alert('<div style="font-size: 3rem;">'+
+			sum2(2, 3)+'</div>');
+		console.log('<div style="font-size: 3rem;">'+
+			sum2(2, 3)+'</div>');
+		document.write('<div style="font-size: 3rem;">'+
+			sum2(2, 3)+'</div>');
+	</script>
+</body>
+</html>

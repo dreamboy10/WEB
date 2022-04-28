@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>RESPONSIVE - layout03</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #c186ba;
+    }
+    #wrap {
+      width: 1200px;
+      margin: 0 auto;
+      font-size: 40px;
+      color: #ffffff;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .header {
+      width: 100%;
+      height: 100px;
+      background: #d30ebd;
+      line-height: 100px;
+    }
+    .aside {
+      float: left;
+      width: 30%;
+      height: 900px;
+      background: #b255a7;
+      line-height: 900px;
+    }
+    .article1 {
+      float: left;
+      width: 70%;
+      height: 300px;
+      background: #5b1b53;
+      line-height: 300px;
+    }
+    .article2 {
+      float: left;
+      width: 70%;
+      height: 300px;
+      background: #41083a;
+      line-height: 300px;
+    }
+    .article3 {
+      float: left;
+      width: 70%;
+      height: 300px;
+      background: #620356;
+      line-height: 300px;
+    }
+    .footer {
+      clear: both;
+      width: 100%;
+      height: 100px;
+      background: #77176b;
+      line-height: 100px;
+    }
+    
+    /* 화면 너비 0 ~ 1200px */
+    @media (max-width: 1240px) {
+      #wrap {
+        width: 100%;
+      }
+      .article1 {
+        height: 450px;
+        line-height: 450px;
+      }
+      .article2 {
+        height: 450px;
+        line-height: 450px;
+      }
+      .article3 {
+        width: 100%;
+      }
+    }
+    
+    /* 화면 너비 0 ~ 768px */
+    @media (max-width: 768px) {
+      .aside {
+        width: 100%;
+        height: 300px;
+        line-height: 300px;
+      }
+      .article1 {
+        width: 50%;
+      }
+      .article2 {
+        width: 50%;
+      }
+    }
+    
+    /* 화면 너비 0 ~ 480px */
+    @media (max-width: 480px) {
+      .article1 {
+        width: 100%;
+      }
+      .article2 {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <header class="header">header</header>
+    <aside class="aside">aside</aside>
+    <section class="article1">article1</section>
+    <section class="article2">article2</section>
+    <section class="article3">article3</section>
+    <footer class="footer">footer</footer>
+  </div>
+</body>
+</html>

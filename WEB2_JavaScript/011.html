@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>객체</title>
+</head>
+<body>
+	<h1>Object</h1>
+	<h2>Create</h2>
+
+	<script>
+		var coworkers = {
+			"programmer":"dreamboy",
+			"designer":"ddre"
+		};
+		alert("programmer : "
+			+coworkers.programmer);
+		console.log("programmer : "
+			+coworkers.programmer);
+		document.write("programmer : "
+			+coworkers.programmer+"<br>");
+
+		alert("designer : "
+			+coworkers.designer);
+		console.log("designer : "
+			+coworkers.designer);
+		document.write("designer : "
+			+coworkers.designer+"<br>");
+
+		coworkers.bookkeeper = "july";
+
+		alert("bookkeeper : "
+			+coworkers.bookkeeper);
+		console.log("bookkeeper : "
+			+coworkers.bookkeeper);
+		document.write("bookkeeper : "
+			+coworkers.bookkeeper+"<br>");
+
+		coworkers["data scientist"] = 'puko';
+
+		alert("data scientist : "
+			+coworkers["data scientist"]);
+		console.log("data scientist : "
+			+coworkers["data scientist"]);
+		document.write("data scientist : "
+			+coworkers["data scientist"]+"<br>");
+	</script>
+
+	<h2>Iterate</h2>
+
+	<script>
+		for(var key in coworkers) {
+			alert(key +' : ' + coworkers[key]);
+			console.log(key +' : ' + coworkers[key]);
+			document.write(key +' : ' + 
+				coworkers[key]+'<br>');
+		}
+	</script>
+
+	<h2>Property &amp; Method</h2>
+
+	<script>
+		coworkers.showAll = function() {
+			for(var key in this) {
+				alert(key +' : ' + this[key]);
+				console.log(key +' : ' + this[key]);
+				document.write(key +' : ' + this[key]+'<br>');
+			}
+		}
+		coworkers.showAll();
+	</script>
+</body>
+</html>
