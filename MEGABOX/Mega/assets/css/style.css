@@ -9,7 +9,7 @@
 }
 #header {
   width: 100%;
-  /* background: rgba(0, 0, 0, 0.1); */
+  background: #ffffff;
   border-bottom: 1px solid #c6c6c6;
 }
 #banner {
@@ -274,21 +274,102 @@
   background: #666666;
   color: #ffffff;
 }
-.movie .movie_chart {}
-.movie .movie_chart > div {}
-.movie .movie_chart > div > div {
+.movie .movie_chart {
+  overflow: hidden;
+}
+.movie .movie_chart > div > div > div {
   display: inline-block;
   width: 292px;
-  height: 592px;
-  border: 1px solid #c4c4c4;
+  margin-right: 15px;
 }
-.movie .movie_chart > div > div .poster {}
-.movie .movie_chart > div > div .poster .rank {}
-.movie .movie_chart > div > div .poster .mx {}
-.movie .movie_chart > div > div .infor {}
-.movie .movie_chart > div > div .infor h3 {}
-.movie .movie_chart > div > div .infor h3 strong {}
-.movie .movie_chart > div > div .infor h3 span {}
+.movie .movie_chart > div > div > div:last-child {
+  margin-right: 0;
+}
+.movie .movie_chart > div > div > div .poster {
+  position: relative;
+}
+.movie .movie_chart > div > div > div .poster img {
+  display: block;
+}
+.movie .movie_chart > div > div > div .poster .rank {
+  position: absolute;
+  top: 17px;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+  line-height: 50px;
+  background: #38116a;
+  text-align: center;
+}
+.movie .movie_chart > div > div > div .poster .rank strong {
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 1.0);
+  color: #ffffff;
+}
+.movie .movie_chart > div > div > div .poster .mx {
+  position: absolute;
+  top: 17px;
+  right: 17px;
+}
+.movie .movie_chart > div > div > div .poster .mx span {
+  width: 103px;
+  height: 25px;
+  display: block;
+}
+.movie .movie_chart > div > div > div .poster .mx .m {
+  background-position: 0 -75px;
+}
+.movie .movie_chart > div > div > div .poster .mx .b {
+  background-position: 0 -100px;
+}
+.movie .movie_chart > div > div > div .infor {
+  background: #ffffff;
+  padding: 17px;
+  border: 1px solid #d9d9d9;
+}
+.movie .movie_chart > div > div > div .infor h3 {
+  color: #333333;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.movie .movie_chart > div > div > div .infor h3 strong {}
+.movie .movie_chart > div > div > div .infor h3 span {
+  width: 29px;
+  height: 29px;
+  display: inline-block;
+  margin-top: 9px;
+  vertical-align: -2px;
+}
+.movie .movie_chart > div > div > div .infor h3 span.all {
+  background-position: -87px -125px;
+}
+.movie .movie_chart > div > div > div .infor h3 span.a12 {
+  background-position: -58px -125px;
+}
+.movie .movie_chart > div > div > div .infor h3 span.a15 {
+  background-position: 0px -125px;
+}
+.movie .movie_chart > div > div > div .infor h3 span.a19 {
+  background-position: -29px -125px;
+}
+.movie .movie_chart > div > div > div .infor .infor_btn {
+  overflow: hidden;
+}
+.movie .movie_chart > div > div > div .infor .infor_btn a {
+  float: left;
+  width: 49%;
+  margin-right: 2%;
+  background: #f2f2f2;
+  font-size: 18px;
+  text-align: center;
+  padding: 15px 0;
+  box-sizing: border-box;
+}
+.movie .movie_chart > div > div > div .infor .infor_btn a:last-child {
+  margin-right: 0;
+}
 
 /* 미디어 쿼리 */
 @media (max-width: 1290px) {
@@ -357,9 +438,19 @@
     font-size: 16px;
     padding-top: 35px;
   }
+  .movie_title ul {
+    width: auto;
+  }
+  .movie_title ul li {
+    width: 25%;
+    box-sizing: border-box;
+  }
 }
 
 @media (max-width: 768px) {
+  body {
+    background: #d9d7e0;
+  }
   #mNav {
     right: 6px;
   }
@@ -371,6 +462,67 @@
   }
   .header h1 strong {
     display: none;
+  }
+  #movie .row {
+    background: #ffffff;
+    margin: 24px;
+    padding: 24px;
+  }
+  #movie .ir_su {
+    position: static;
+    width: auto;
+    height: auto;
+    line-height: normal;
+    text-indent: 0;
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 20px;
+  }
+  .movie {
+    padding: 0;
+  }
+  .movie .movie_title {
+    margin-bottom: 30px;
+  }
+  .movie .movie_title ul {
+    position: relative;
+    padding-bottom: 10px;
+  }
+  .movie .movie_title ul::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #e1e1e1;
+  }
+  .movie .movie_title ul li {
+    width: auto;
+    border: 0;
+  }
+  .movie .movie_title ul li a {
+    position: relative;
+    font-size: 18px;
+    color: #666666;
+    font-weight: 400;
+    padding: 0;
+    margin-right: 35px;
+  }
+  .movie .movie_title ul li.active a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    z-index: 2;
+    width: 100%;
+    height: 2px;
+    background: #666666;
+  }
+  .movie .movie_title ul li.active a {
+    background: none;
+    color: #666666;
   }
 }
 
@@ -414,6 +566,87 @@
     background: rgba(0, 0, 0, 0.6);
     border-color: #ffffff;
   }
+  #movie .container {}
+  #movie .container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    width: 8px;
+    height: 100%;
+    background: #d9d7e0;
+  }
+  #movie .row {
+    position: relative;
+    margin: 8px;
+    padding: 16px;
+    margin-right: 0;
+    padding-right: 0;
+  }
+  #movie .row::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 24px;
+    height: 100%;
+    background: #ffffff;
+  }
+  #movie .ir_su {
+    font-size: 18px;
+    padding-bottom: 10px;
+  }
+  .movie .movie_title {
+    margin-bottom: 20px;
+  }
+  .movie .movie_title ul {
+    padding-bottom: 8px;
+  }
+  .movie .movie_title ul li a {
+    font-size: 14px;
+    margin-right: 15px;
+  }
+  .movie .movie_title ul li.active a::before {
+    bottom: -8px;
+  }
+  .movie .movie_chart {
+    position: relative;
+    z-index: 30;
+  }
+  .movie .movie_chart > div > div > div .infor {
+    padding: 5px;
+  }
+  .movie .movie_chart > div > div > div .infor h3 {
+    text-align: center;
+    margin: 5px 0 10px;
+  }
+  .movie .movie_chart > div > div > div .infor h3 strong {
+    display: block;
+    font-size: 19px;
+    color: #222222;
+    font-weight: 300;
+  }
+  .movie .movie_chart > div > div > div .infor h3 span {
+    display: none;
+  }
+  .movie .movie_chart > div > div > div .infor .infor_btn a {
+    display: block;
+    width: 52%;
+    margin-left: 24%;
+    margin-right: 0;
+    padding: 5px;
+    color: #777777;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background: none;
+    border: 1px solid #dddddd;
+  }
+  .movie .movie_chart > div > div > div .infor .infor_btn a:last-child {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -421,7 +654,9 @@
 }
 
 @media (max-width: 320px) {
-  
+  .movie .movie_title ul li a {
+    margin-right: 9px;
+  }
 }
 
 

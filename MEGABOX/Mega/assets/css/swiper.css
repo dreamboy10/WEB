@@ -61,7 +61,7 @@
     z-index: 5;
 }
 .swiper-slide .container {z-index: 20;}
-.swiper-slide:after {
+.swiper-slide::after {
     content: ''; 
     position: absolute; 
     z-index: 2; 
@@ -70,7 +70,7 @@
     background: #000; 
     opacity: .2;
 }
-.swiper-container2 .swiper-slide:after {
+.swiper-container2 .swiper-slide::after {
     opacity: 0;
 }
 
