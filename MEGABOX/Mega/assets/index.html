@@ -7,7 +7,7 @@
   <meta name="author" content="dreamboy">
   <meta name="description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다.">
   <meta name="keywords" content="메가박스, 유튜브, 영화, 최신영화, 영화관, CGV, 롯데시네마, 드림보이, 웹스, 사이트 만들기, 따라하기">
-  <title>메가박스 사이트 코딩하기 : 푸터 영역</title>
+  <title>메가박스 사이트 코딩하기 : 탭 메뉴 / 스킵 메뉴</title>
   
   <!-- css -->
   <link rel="stylesheet" href="css/reset.css">
@@ -54,6 +54,15 @@
   
 </head>
 <body>
+  <!-- skip -->
+  <div id="skip">
+    <a rel="bookmark" href="#movie">최신 영화 소식</a>
+    <a rel="bookmark" href="#event">새로운 이벤트</a>
+    <a rel="bookmark" href="#new">새로운 영화</a>
+    <a rel="bookmark" href="#help">고객센터</a>
+  </div>
+  <!-- //skip -->
+  
   <header id="header">
     <div class="container">
       <div class="row">
@@ -1940,7 +1949,9 @@
                           </em>
                         </dt>
                         <dd>
-                          [무대인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          <a href="#">
+                            [무대인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          </a>
                         </dd>
                       </dl>
                     </li>
@@ -1955,7 +1966,9 @@
                           </em>
                         </dt>
                         <dd>
-                          [무대인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          <a href="#">
+                            [무대인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          </a>
                         </dd>
                       </dl>
                     </li>
@@ -1970,7 +1983,9 @@
                           </em>
                         </dt>
                         <dd>
-                          [무대인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          <a href="#">
+                            [무대인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          </a>
                         </dd>
                       </dl>
                     </li>
@@ -1985,7 +2000,9 @@
                           </em>
                         </dt>
                         <dd>
-                          [무대인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          <a href="#">
+                            [무대인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          </a>
                         </dd>
                       </dl>
                     </li>
@@ -1993,7 +2010,7 @@
                 </li>
                 <li>
                   <a href="#">영화관 공지</a>
-                  <ul style="display: none">
+                  <ul>
                     <li>
                       <dl>
                         <dt>
@@ -2005,7 +2022,9 @@
                           </em>
                         </dt>
                         <dd>
-                          [영화인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          <a href="#">
+                            [영화인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          </a>
                         </dd>
                       </dl>
                     </li>
@@ -2020,7 +2039,9 @@
                           </em>
                         </dt>
                         <dd>
-                          [영화인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          <a href="#">
+                            [영화인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          </a>
                         </dd>
                       </dl>
                     </li>
@@ -2035,7 +2056,9 @@
                           </em>
                         </dt>
                         <dd>
-                          [영화인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          <a href="#">
+                            [영화인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          </a>
                         </dd>
                       </dl>
                     </li>
@@ -2050,7 +2073,9 @@
                           </em>
                         </dt>
                         <dd>
-                          [영화인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          <a href="#">
+                            [영화인사] 터미네이터6 시즌 발표 및 영상 제작 10주년 기념 라이브 쇼
+                          </a>
                         </dd>
                       </dl>
                     </li>
@@ -2705,6 +2730,20 @@
       movCont.css("display","none");
       movCont.eq(index).css("display","block");
     });
+    
+    // 공지사항 탭 메뉴
+    var tabMenu = $(".notice");
+    
+    tabMenu.find("ul > li > ul").hide();
+    tabMenu.find("li.active > ul").show();
+    
+    function tabList(e) {
+      e.preventDefault();
+      var target = $(this);
+      target.next().show().parent("li").addClass("active").siblings("li").removeClass("active").find("ul").hide();
+    }
+    
+    tabMenu.find("ul > li > a").click(tabList).focus(tabList);
   </script>
   <!-- //script -->
   
