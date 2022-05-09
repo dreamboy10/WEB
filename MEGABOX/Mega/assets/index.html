@@ -7,7 +7,7 @@
   <meta name="author" content="dreamboy">
   <meta name="description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다.">
   <meta name="keywords" content="메가박스, 유튜브, 영화, 최신영화, 영화관, CGV, 롯데시네마, 드림보이, 웹스, 사이트 만들기, 따라하기">
-  <title>메가박스 사이트 코딩하기 : 탭 메뉴 / 스킵 메뉴</title>
+  <title>메가박스 사이트 코딩하기 : Youtube API</title>
   
   <!-- css -->
   <link rel="stylesheet" href="css/reset.css">
@@ -1767,7 +1767,7 @@
             새로운 영화
           </h2>
           <div class="new_left">
-            <div class="play">
+            <div class="play" id="showTrailer" data-youtube="F1239ZePXfM">
               <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
               viewBox="0 0 120 120" style="enable-background:new 0 0 120 120;" xml:space="preserve">
                 <circle class="st0" cx="60" cy="60.4" r="56"/>
@@ -2662,89 +2662,25 @@
   </footer>
   <!-- //footer -->
   
+  <!-- trailer -->
+  <aside id="blackout" class="overlay">
+    <div id="trailerModal" class="modal">
+      <div id="trailer"></div>
+    </div>
+    <button id="hideTrailer" class="modal_close">
+      닫기
+    </button>
+  </aside>
+  <!-- //trailer -->
+  
   <!-- script -->
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/modernizr-custom.js"></script>
   <script src="js/ie-checker.js"></script>
+  <script src="js/iframe_api.js"></script>
   <script src="js/swiper.min.js"></script>
-  <script>
-    // 배너 이미지 슬라이드
-    var mySwiper = new Swiper('.swiper-container', {
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-      },
-      autoplay: {
-        delay: 5000,
-      },
-    });
-    
-    // 영화 차트 이미지 슬라이드
-    var mySwiper = new Swiper('.swiper-container2', {
-      slidesPerView: 4,
-      spaceBetween: 24,
-      /*
-      mousewheel: {
-        invert: true,
-      },
-      */
-      keyboard: {
-        enabled: true,
-        onlyInViewport: false,
-      },
-      autoplay: {
-        delay: 6000,
-      },
-      breakpoints: {
-        600: {
-          slidesPerView: 1.4,
-          spaceBetween: 24
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 24
-        },
-        960: {
-          slidesPerView: 3,
-          spaceBetween: 24
-        },
-      }
-    });
-    
-    // 영화 차트 탭 메뉴
-    var movBtn = $(".movie_title > ul > li");
-    var movCont = $(".movie_chart > div");
-    
-    movCont.hide().eq(0).show();
-    
-    movBtn.click(function(e){
-      e.preventDefault();
-      var target = $(this);
-      var index = target.index();
-      movBtn.removeClass("active");
-      target.addClass("active");
-      movCont.css("display","none");
-      movCont.eq(index).css("display","block");
-    });
-    
-    // 공지사항 탭 메뉴
-    var tabMenu = $(".notice");
-    
-    tabMenu.find("ul > li > ul").hide();
-    tabMenu.find("li.active > ul").show();
-    
-    function tabList(e) {
-      e.preventDefault();
-      var target = $(this);
-      target.next().show().parent("li").addClass("active").siblings("li").removeClass("active").find("ul").hide();
-    }
-    
-    tabMenu.find("ul > li > a").click(tabList).focus(tabList);
-  </script>
+  <script src="js/movie.js"></script>
+  <script src="js/custom.js"></script>
   <!-- //script -->
   
 </body>
