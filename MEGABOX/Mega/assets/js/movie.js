@@ -2,11 +2,11 @@
     
   (function handleTrailer(){
     var $selector = {
-      body: $( "body" ),
-      overlay: $( "#blackout" ),
-      modal: $( "#trailerModal" ),
-      showButton: $( "#showTrailer" ),
-      hideButton: $( "#hideTrailer" ),
+      body: $("body"),
+      overlay: $("#blackout"),
+      modal: $("#trailerModal"),
+      showButton: $("#showTrailer"),
+      hideButton: $("#hideTrailer"),
     };
     
     var player = {
@@ -25,11 +25,11 @@
     visible: false
     };
 
-    $selector.showButton.on( "click", showPlayer );
-    $selector.hideButton.on( "click", hidePlayer );
+    $selector.showButton.on("click", showPlayer);
+    $selector.hideButton.on("click", hidePlayer);
     
-    function setPlayer( id ){
-      player.obj = new YT.Player( "trailer", {
+    function setPlayer(id){
+      player.obj = new YT.Player("trailer", {
         width: 480,
         height: 282,
         videoId: id,    
@@ -38,7 +38,7 @@
       
       resizePlayer();
       
-      $( window ).on( "resize orientationchange", function() {
+      $(window).on("resize orientationchange", function() {
         resizePlayer();
       });
     }
@@ -46,30 +46,31 @@
     function resizePlayer() {
       var viewport = {}, frame = {}, modal = {};
 
-      viewport.width = $( window ).width();
-      viewport.height = $( window ).height();
+      viewport.width = $(window ).width();
+      viewport.height = $(window ).height();
 
       frame.width = viewport.width;
       frame.height = frame.width / 1.6;
 
-      modal.top = ( ( viewport.height - frame.height ) / 2 ) + "px";
+      modal.top = ((viewport.height - frame.height) / 2) + "px";
       modal.left = "0px";
 
-      $selector.modal.css( modal );
+      $selector.modal.css(modal);
 
-      player.obj.setSize( frame.width, frame.height );
+      player.obj.setSize(frame.width, frame.height);
     }
     
     function showPlayer() {
-      if ( !player.obj ) {
-        setPlayer( $selector.showButton.data("youtube") );
+      if (!player.obj) {
+        setPlayer( $selector.showButton.data("youtube"));
       }
       $selector.body.addClass("modal_on");
       $selector.overlay.show();
       player.visible = true;
     };
     
-    function hidePlayer (){
+    function hidePlayer() {
+      player.obj.stopVideo();
       $selector.overlay.hide();
       $selector.body.removeClass("modal_on");
       player.visible = false;

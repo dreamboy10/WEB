@@ -1,4 +1,3 @@
-(function($){
   // 배너 이미지 슬라이드
   var mySwiper = new Swiper('.swiper-container', {
     navigation: {
@@ -15,7 +14,7 @@
   });
     
   // 영화 차트 이미지 슬라이드
-  var mySwiper = neSwiper('.swiper-container2', {
+  var mySwiper = new Swiper('.swiper-container2', {
     slidesPerView: 4,
     spaceBetween: 24,
     /*
@@ -75,4 +74,3 @@
   }
     
   tabMenu.find("ul > li > a").click(tabList).focus(tabList);
-})(jQuery);
